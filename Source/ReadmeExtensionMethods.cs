@@ -5,7 +5,6 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
-using static AssetGenerator.Runtime.MeshPrimitive;
 
 namespace AssetGenerator
 {
@@ -45,12 +44,12 @@ namespace AssetGenerator
             return $"[{string.Join(", ", stringArray)}]";
         }
 
-        public static string ToReadmeString(this List<Vector3> value)
+        public static string ToReadmeString(this IEnumerable<Vector3> value)
         {
             return ":white_check_mark:";
         }
 
-        public static string ToReadmeString(this List<Vector4> value)
+        public static string ToReadmeString(this IEnumerable<Vector4> value)
         {
             return ":white_check_mark:";
         }
@@ -78,10 +77,10 @@ namespace AssetGenerator
         {
             var matrixString = new string[][]
             {
-                new string[] { value.M11.ToReadmeString(), value.M12.ToReadmeString(), value.M13.ToReadmeString(), value.M14.ToReadmeString() },
-                new string[] { value.M21.ToReadmeString(), value.M22.ToReadmeString(), value.M23.ToReadmeString(), value.M24.ToReadmeString() },
-                new string[] { value.M31.ToReadmeString(), value.M32.ToReadmeString(), value.M33.ToReadmeString(), value.M34.ToReadmeString() },
-                new string[] { value.M41.ToReadmeString(), value.M42.ToReadmeString(), value.M43.ToReadmeString(), value.M44.ToReadmeString() },
+                new [] { value.M11.ToReadmeString(), value.M12.ToReadmeString(), value.M13.ToReadmeString(), value.M14.ToReadmeString() },
+                new [] { value.M21.ToReadmeString(), value.M22.ToReadmeString(), value.M23.ToReadmeString(), value.M24.ToReadmeString() },
+                new [] { value.M31.ToReadmeString(), value.M32.ToReadmeString(), value.M33.ToReadmeString(), value.M34.ToReadmeString() },
+                new [] { value.M41.ToReadmeString(), value.M42.ToReadmeString(), value.M43.ToReadmeString(), value.M44.ToReadmeString() },
             };
 
             var output = new StringBuilder();
@@ -100,38 +99,6 @@ namespace AssetGenerator
         public static string ToReadmeString(this Enum value)
         {
             return GenerateNameWithSpaces(value.ToString(), fullName: true);
-        }
-
-        public static string ToReadmeString(this TextureCoordsComponentTypeEnum value)
-        {
-            if (value == TextureCoordsComponentTypeEnum.NORMALIZED_UBYTE)
-            {
-                return "Byte";
-            }
-            else if (value == TextureCoordsComponentTypeEnum.NORMALIZED_USHORT)
-            {
-                return "Short";
-            }
-            else
-            {
-                return "Float";
-            }
-        }
-
-        public static string ToReadmeString(this IndexComponentTypeEnum value)
-        {
-            if (value == IndexComponentTypeEnum.UNSIGNED_BYTE)
-            {
-                return "Byte";
-            }
-            else if (value == IndexComponentTypeEnum.UNSIGNED_SHORT)
-            {
-                return "Short";
-            }
-            else
-            {
-                return "Int";
-            }
         }
 
         public static string ToReadmeString(this float value)
