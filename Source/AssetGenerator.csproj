@@ -26,6 +26,16 @@
     <Compile Remove="ModelGroups\Node_Material.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="ReadmeTemplates\Accessor_Sparse.md" />
+    <None Remove="ReadmeTemplates\Accessor_SparseType.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReadmeTemplates\Accessor_Sparse.md">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReadmeTemplates\Accessor_SparseType.md">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReadmeTemplates\Animation_SkinType.md" />
     <EmbeddedResource Include="ReadmeTemplates\Animation_Skin.md" />
     <EmbeddedResource Include="ReadmeTemplates\Animation_NodeMisc.md" />
@@ -97,6 +107,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resources\Figures\skinF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Figures\SparseAccessor_Input.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Figures\SparseAccessor_NoBufferView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Figures\SparseAccessor_Output-Rotation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Figures\SparseAccessor_Output-Translation.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resources\Figures\Thumbnails\Animation_Skin_12.png">

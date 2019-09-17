@@ -19,42 +19,48 @@ namespace AssetGenerator
                         {
                             new Runtime.MeshPrimitive
                             {
-                                Positions = new List<Vector3>
-                                {
-                                    // Trunk
-                                    new Vector3(-0.125f, 0.000f, -0.250f),
-                                    new Vector3( 0.125f, 0.000f, -0.250f),
-                                    new Vector3(-0.125f, 0.000f,  0.000f),
-                                    new Vector3( 0.125f, 0.000f,  0.000f),
+                                Positions = new Runtime.Accessor
+                                (
+                                    new[]
+                                    {
+                                        // Trunk
+                                        new Vector3(-0.125f, 0.000f, -0.250f),
+                                        new Vector3( 0.125f, 0.000f, -0.250f),
+                                        new Vector3(-0.125f, 0.000f,  0.000f),
+                                        new Vector3( 0.125f, 0.000f,  0.000f),
 
-                                    // Root of V split
-                                    new Vector3( 0.000f, 0.000f,  0.000f),
+                                        // Root of V split
+                                        new Vector3( 0.000f, 0.000f,  0.000f),
 
-                                    // Left branch
-                                    new Vector3(-0.250f, 0.000f,  0.250f),
-                                    new Vector3(-0.125f, 0.000f,  0.250f),
-                                    new Vector3(-0.375f, 0.000f,  0.500f),
-                                    new Vector3(-0.250f, 0.000f,  0.500f),
+                                        // Left branch
+                                        new Vector3(-0.250f, 0.000f,  0.250f),
+                                        new Vector3(-0.125f, 0.000f,  0.250f),
+                                        new Vector3(-0.375f, 0.000f,  0.500f),
+                                        new Vector3(-0.250f, 0.000f,  0.500f),
 
-                                    // Right branch
-                                    new Vector3( 0.125f, 0.000f,  0.250f),
-                                    new Vector3( 0.250f, 0.000f,  0.250f),
-                                    new Vector3( 0.250f, 0.000f,  0.500f),
-                                    new Vector3( 0.375f, 0.000f,  0.500f),
-                                },
-                                Indices = new List<int>
-                                {
-                                    0, 1, 2,
-                                    2, 1, 3,
-                                    2, 4, 5,
-                                    5, 4, 6,
-                                    5, 6, 7,
-                                    7, 6, 8,
-                                    4, 3, 9,
-                                    9, 3, 10,
-                                    9, 10, 11,
-                                    11, 10, 12,
-                                },
+                                        // Right branch
+                                        new Vector3( 0.125f, 0.000f,  0.250f),
+                                        new Vector3( 0.250f, 0.000f,  0.250f),
+                                        new Vector3( 0.250f, 0.000f,  0.500f),
+                                        new Vector3( 0.375f, 0.000f,  0.500f),
+                                    }
+                                ),
+                                Indices = new Runtime.Accessor
+                                (
+                                    new[]
+                                    {
+                                        0, 1, 2,
+                                        2, 1, 3,
+                                        2, 4, 5,
+                                        5, 4, 6,
+                                        5, 6, 7,
+                                        7, 6, 8,
+                                        4, 3, 9,
+                                        9, 3, 10,
+                                        9, 10, 11,
+                                        11, 10, 12,
+                                    }
+                                ),
                                 Material = new Runtime.Material
                                 {
                                     DoubleSided = true,

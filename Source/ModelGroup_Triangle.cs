@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AssetGenerator.Runtime;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace AssetGenerator
@@ -16,18 +17,18 @@ namespace AssetGenerator
                     {
                         new Runtime.MeshPrimitive
                         {
-                            Positions = includePositions ? GetTrianglePositions() : null,
-                            Indices = includeIndices ? GetTriangleIndices() : null,
+                            Positions = includePositions ? new Accessor(GetTrianglePositions()) : null,
+                            Indices = includeIndices ? new Accessor(GetTriangleIndices()) : null,
+                            Normals = includeNormals ? new Accessor(GetTriangleNormals()) : null,
                             Material = includeMaterial ? GetTriangleMaterial() : null,
-                            Normals = includeNormals ? GetTriangleNormals() : null,
                         }
                     }
                 };
             }
 
-            public static List<Vector3> GetTrianglePositions()
+            public static Vector3[] GetTrianglePositions()
             {
-                return new List<Vector3>
+                return new[]
                 {
                     new Vector3(0.0f, -0.2f, -0.05f),
                     new Vector3(0.0f, -0.2f,  0.05f),
@@ -40,7 +41,7 @@ namespace AssetGenerator
                 return new Runtime.Material
                 {
                     DoubleSided = true,
-                    MetallicRoughnessMaterial = new Runtime.PbrMetallicRoughness
+                    MetallicRoughnessMaterial = new PbrMetallicRoughness
                     {
                         BaseColorFactor = new Vector4(0.0f, 0.0f, 1.0f, 1.0f)
                     }
@@ -55,9 +56,9 @@ namespace AssetGenerator
                 };
             }
 
-            public static List<Vector3> GetTriangleNormals()
+            public static Vector3[] GetTriangleNormals()
             {
-                return new List<Vector3>
+                return new[]
                 {
                     new Vector3(0.0f, 0.0f, 1.0f),
                     new Vector3(0.0f, 0.0f, 1.0f),
